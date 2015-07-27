@@ -32,9 +32,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :test do
+  gem 'capybara'
+  #gem 'codeclimate-test-reporter', require: nil
+  gem 'shoulda-matchers'
+end
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  # pry
+  gem 'pry-byebug'
+
+  # RSpec
+  gem 'rspec-activemodel-mocks'
+  gem 'rspec-rails'
+  gem 'rspec-core'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -43,3 +54,6 @@ group :development, :test do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
