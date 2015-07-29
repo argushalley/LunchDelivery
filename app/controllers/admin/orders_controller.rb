@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class Admin::OrdersController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.destroy
 
-    redirect_to orders_path
+    redirect_to admin_orders_path
   end
 
   private

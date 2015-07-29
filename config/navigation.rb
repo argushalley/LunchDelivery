@@ -11,21 +11,21 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     # Meat menu
-    primary.item :meats, 'Carnes', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? } do |sub|
-      sub.item :index, 'Listar', meats_path, icon: 'glyphicon glyphicon-th-list'
-      sub.item :creare, 'Cadastrar', new_meat_path, icon: 'fa fa-credit-card'
+    primary.item :meats, 'Carnes', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? && current_user.admin? } do |sub|
+      sub.item :index, 'Listar', admin_meats_path, icon: 'glyphicon glyphicon-th-list'
+      sub.item :creare, 'Cadastrar', new_admin_meat_path, icon: 'fa fa-credit-card'
     end
 
     # Side Dish menu
-    primary.item :meats, 'Acompanhamentos', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? } do |sub|
-      sub.item :index, 'Listar', side_dishes_path, icon: 'glyphicon glyphicon-th-list'
-      sub.item :creare, 'Cadastrar', new_side_dish_path, icon: 'fa fa-credit-card'
+    primary.item :meats, 'Acompanhamentos', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? && current_user.admin? } do |sub|
+      sub.item :index, 'Listar', admin_side_dishes_path, icon: 'glyphicon glyphicon-th-list'
+      sub.item :creare, 'Cadastrar', new_admin_side_dish_path, icon: 'fa fa-credit-card'
     end
 
     # Orders menu
-    primary.item :meats, 'Pedidos', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? } do |sub|
-      sub.item :index, 'Listar', orders_path, icon: 'glyphicon glyphicon-th-list'
-      sub.item :creare, 'Cadastrar', new_order_path, icon: 'fa fa-credit-card'
+    primary.item :meats, 'Pedidos', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? && current_user.admin? } do |sub|
+      sub.item :index, 'Listar', admin_orders_path, icon: 'glyphicon glyphicon-th-list'
+      sub.item :creare, 'Cadastrar', new_admin_order_path, icon: 'fa fa-credit-card'
     end
 
     primary.dom_id = 'menu-root'

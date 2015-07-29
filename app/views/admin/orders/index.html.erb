@@ -1,0 +1,45 @@
+<table class="table table-striped">
+
+  <thead>
+    <th>#</th>
+    <th>Carnes</th>
+    <th>Acompanhamentos</th>
+    <th>Endereço</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td>
+          <% order.meats.each do |meat| %>
+            <ul class="list-unstyled">
+              <li><%= meat.name %></li>
+            </ul>
+          <% end %>
+        </td>
+        <td>
+          <% order.side_dishes.each do |side_dish| %>
+            <ul class="list-unstyled">
+              <li><%= side_dish.name %></li>
+            </ul>
+          <% end %>
+        </td>
+        <td>
+          <% if order.address %>
+            <ul class="list-unstyled">
+              <li>Rua: <%= order.address.street %></li>
+              <li>Número: <%= order.address.number %></li>
+              <li>Referência: <%= order.address.reference %></li>
+            </ul>
+          <% end %>
+        </td>
+        <td><%= link_to 'Exibir', admin_order_path(order) %></td>
+        <td><%= link_to 'Editar', edit_admin_order_path(order) %></td>
+        <td><%= link_to 'Deletar', admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
