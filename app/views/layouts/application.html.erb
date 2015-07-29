@@ -8,7 +8,24 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container master-container">
+    <%#= render 'shared/header' %>
 
+    <% if notice %>
+      <div class="alert alert-success fade in" data-alert="alert">
+        <a class="close" data-dismiss='alert' href="#">×</a>
+        <p><%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert alert-danger fade in" data-alert="alert">
+        <a class="close" data-dismiss='alert' href="#">×</a>
+        <p><%= alert %></p>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
 </body>
 </html>
