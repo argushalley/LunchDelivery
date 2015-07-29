@@ -38,6 +38,8 @@ gem 'devise'
 gem 'factory_girl_rails'
 gem 'responders', '~> 2.0'
 gem 'simple_form'
+gem 'simple-navigation'
+gem 'simple-navigation-bootstrap'
 
 group :test do
   gem 'capybara'
