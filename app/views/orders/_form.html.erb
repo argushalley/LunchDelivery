@@ -4,10 +4,8 @@
 
     <div class="form-inputs">
         <div class="form-group">
-          <%#= mf.label :type, 'Carnes *', class: 'col-sm-2 control-label' %>
           <div class="col-sm-6">
-            <%#= f.input :meats, as: :select %>
-            <%= f.association :meats, collection: Meat.types.keys, include_blank: false %>
+            <%= f.association :meats, collection: Meat.all, as: :check_boxes %>
           </div>
         </div>
     </div>

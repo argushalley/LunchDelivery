@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
     @order = Order.new(order_params)
     binding.pry
   end
@@ -29,10 +28,7 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(
-      #meats_attributes: [:id, :type]
-      meat_ids: [:type]#,
-      #side_dish_attributes: [:id, :type],
-      #address_attributes: [:id, :street, :number, :reference]
+      meat_ids: []
     )
   end
 end

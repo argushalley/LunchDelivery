@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 20150727145515) do
   add_index "addresses", ["order_id"], name: "index_addresses_on_order_id", using: :btree
 
   create_table "meats", force: :cascade do |t|
-    t.integer  "type",       null: false
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"
   end
 
+  add_index "meats", ["name"], name: "index_meats_on_name", using: :btree
   add_index "meats", ["order_id"], name: "index_meats_on_order_id", using: :btree
-  add_index "meats", ["type"], name: "index_meats_on_type", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -43,14 +43,14 @@ ActiveRecord::Schema.define(version: 20150727145515) do
   end
 
   create_table "side_dishes", force: :cascade do |t|
-    t.integer  "type",       null: false
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"
   end
 
+  add_index "side_dishes", ["name"], name: "index_side_dishes_on_name", using: :btree
   add_index "side_dishes", ["order_id"], name: "index_side_dishes_on_order_id", using: :btree
-  add_index "side_dishes", ["type"], name: "index_side_dishes_on_type", using: :btree
 
   add_foreign_key "addresses", "orders"
   add_foreign_key "meats", "orders"
