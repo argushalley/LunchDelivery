@@ -23,9 +23,9 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     # Orders menu
-    primary.item :meats, 'Pedidos', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? && current_user.admin? } do |sub|
-      sub.item :index, 'Listar', admin_orders_path, icon: 'glyphicon glyphicon-th-list'
-      sub.item :creare, 'Cadastrar', new_admin_order_path, icon: 'fa fa-credit-card'
+    primary.item :meats, 'Pedidos', icon: 'fa fa-cc-visa', :if => lambda { user_signed_in? } do |sub|
+      sub.item :index, 'Listar', orders_path, icon: 'glyphicon glyphicon-th-list', :if => lambda { current_user.admin? }
+      sub.item :creare, 'Cadastrar', new_order_path, icon: 'fa fa-credit-card', :if => lambda { can? :create, Order }
     end
 
     primary.dom_id = 'menu-root'
