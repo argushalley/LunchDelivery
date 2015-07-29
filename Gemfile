@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
+gem 'cancancan', '~> 1.10'
 gem 'devise'
 gem 'factory_girl_rails'
 gem 'responders', '~> 2.0'
