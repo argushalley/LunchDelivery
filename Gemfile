@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
+gem 'responders', '~> 2.0'
 
 group :test do
   gem 'capybara'
