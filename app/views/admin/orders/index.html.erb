@@ -36,9 +36,9 @@
             </ul>
           <% end %>
         </td>
-        <td><%= link_to 'Exibir', order_path(order) %></td>
-        <td><%= link_to 'Editar', edit_order_path(order) %></td>
-        <td><%= link_to 'Deletar', order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', admin_order_path(order) %></td>
+        <td><%= link_to 'Editar', edit_admin_order_path(order) %></td>
+        <td><%= link_to 'Deletar', admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

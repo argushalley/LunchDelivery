@@ -1,17 +1,16 @@
-class OrdersController < ApplicationController
+class Admin::OrdersController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
 
   def index
     authorize! :read, Order
-    redirect_to root_url
+    @orders = Order.all
   end
 
   def show
     authorize! :read, Order
     @order = Order.find(params[:id])
-    redirect_to root_url unless current_user == @order.user
   end
 
   def new
@@ -28,7 +27,7 @@ class OrdersController < ApplicationController
     @order.user = current_user
 
     if @order.save
-      respond_with @order
+      respond_with @order, location: [:admin, @order]
     else
       render 'new'
     end
@@ -37,14 +36,13 @@ class OrdersController < ApplicationController
   def edit
     authorize! :update, Order
     @order = Order.find(params[:id])
-    redirect_to root_url unless current_user == @order.user
   end
 
   def update
     authorize! :update, Order
     @order = Order.find(params[:id])
     @order.update_attributes(order_params)
-    respond_with @order
+    respond_with @order, location: [:admin, @order]
   end
 
   def destroy
@@ -52,7 +50,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.destroy
 
-    redirect_to orders_path
+    redirect_to admin_orders_path
   end
 
   private

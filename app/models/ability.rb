@@ -7,8 +7,8 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can [:read, :create], Order
-      can [:update, :destroy], Order, user_id: user.id
+      can [:create], Order
+      can [:read, :update, :destroy], Order, user_id: user.id
     end
   end
 end
