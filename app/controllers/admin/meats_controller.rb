@@ -45,8 +45,7 @@ class Admin::MeatsController < ApplicationController
     authorize! :destroy, Meat
     @meat = Meat.find(params[:id])
     @meat.destroy
-
-    redirect_to admin_meats_path
+    redirect_to admin_meats_path, alert: @meat.errors.full_messages if @meat.errors.any?
   end
 
   private
