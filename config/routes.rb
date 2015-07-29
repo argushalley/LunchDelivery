@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :meats
     resources :side_dishes
-    resources :orders
   end
 
-  #resources :orders
+  resources :orders
 end

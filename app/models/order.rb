@@ -1,4 +1,5 @@
 class Order < ActiveRecord::Base
+  belongs_to :user
   has_many :order_meats, dependent: :destroy
   has_many :meats, through: :order_meats
   has_many :order_side_dishes, dependent: :destroy

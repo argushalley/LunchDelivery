@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   enum role: [:default, :admin]
+
+  has_many :orders
 end

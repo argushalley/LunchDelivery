@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
   def create
     authorize! :create, Order
     @order = Order.new(order_params)
+    @order.user = current_user
 
     if @order.save
       respond_with @order
