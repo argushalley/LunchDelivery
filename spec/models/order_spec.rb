@@ -9,4 +9,7 @@ RSpec.describe Order, type: :model do
   it { is_expected.to accept_nested_attributes_for(:meats) }
   it { is_expected.to accept_nested_attributes_for(:side_dishes) }
   it { is_expected.to accept_nested_attributes_for(:address) }
+  it { is_expected.to validate_presence_of(:address) }
+  it { is_expected.to validate_presence_of(:meats) }
+  it { is_expected.to validate_presence_of(:side_dishes) }
 end
