@@ -1,0 +1,21 @@
+<div class="row">
+  <%= simple_form_for @order, html: { class: 'form-horizontal' } do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+        <div class="form-group">
+          <%#= mf.label :type, 'Carnes *', class: 'col-sm-2 control-label' %>
+          <div class="col-sm-6">
+            <%#= f.input :meats, as: :select %>
+            <%= f.association :meats, collection: Meat.types.keys, include_blank: false %>
+          </div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+      <div class="form-group text-center">
+        <%= f.button :submit, button_label, class: 'btn btn-flat inverse' %>
+      </div>
+    </div>
+  <% end %>
+</div>
