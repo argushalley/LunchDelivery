@@ -1,3 +1,4 @@
 class Meat < ActiveRecord::Base
-  belongs_to :order, foreign_key: :order_id
+  has_many :order_meats
+  has_many :orders, through: :order_meats
 end

@@ -1,0 +1,21 @@
+<table class="table table-striped">
+
+  <thead>
+    <th>#</th>
+    <th>Acompanhamento</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @side_dishes.each do |side_dish| %>
+      <tr>
+        <td><%= side_dish.id %></td>
+        <td><%= side_dish.name %></td>
+        <td><%= link_to 'Exibir', side_dish_path(side_dish) %></td>
+        <td><%= link_to 'Editar', edit_side_dish_path(side_dish) %></td>
+        <td><%= link_to 'Deletar', side_dish_path(side_dish), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

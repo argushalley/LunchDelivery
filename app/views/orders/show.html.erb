@@ -2,16 +2,32 @@
   <thead>
     <th>#</th>
     <th>Carnes</th>
+    <th>Acompanhamentos</th>
+    <th>Endereço</th>
   </thead>
   <tbody>
     <tr>
       <td><%= @order.id %></td>
       <td>
-          <% @order.meats.each do |meat| %>
-            <ul class="list-unstyled">
-              <li><%= meat.name %></li>
-            </ul>
-          <% end %>
+        <% @order.meats.each do |meat| %>
+          <ul class="list-unstyled">
+            <li><%= meat.name %></li>
+          </ul>
+        <% end %>
+      </td>
+      <td>
+        <% @order.side_dishes.each do |side_dish| %>
+          <ul class="list-unstyled">
+            <li><%= side_dish.name %></li>
+          </ul>
+        <% end %>
+      </td>
+      <td>
+        <ul class="list-unstyled">
+          <li>Rua: <%= @order.address.street %></li>
+          <li>Número: <%= @order.address.number %></li>
+          <li>Referência: <%= @order.address.reference %></li>
+        </ul>
       </td>
     </tr>
   </tbody>
