@@ -1,0 +1,18 @@
+<table class="table table-striped">
+  <thead>
+    <th>#</th>
+    <th>Carnes</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @order.id %></td>
+      <td>
+          <% @order.meats.each do |meat| %>
+            <ul class="list-unstyled">
+              <li><%= meat.name %></li>
+            </ul>
+          <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

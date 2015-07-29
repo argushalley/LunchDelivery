@@ -1,8 +1,11 @@
 class OrdersController < ApplicationController
+  respond_to :html
+
   def index
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def new
@@ -12,7 +15,13 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    binding.pry
+
+    if @order.save
+      #respond_with @user, location: [:admin, @user]
+      respond_with @order
+    else
+      render 'new'
+    end
   end
 
   def edit
