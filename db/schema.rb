@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727145515) do
+ActiveRecord::Schema.define(version: 20150729135537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "street"
-    t.string   "number"
+    t.string   "street",     null: false
+    t.string   "number",     null: false
     t.string   "reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,14 +28,32 @@ ActiveRecord::Schema.define(version: 20150727145515) do
   add_index "addresses", ["order_id"], name: "index_addresses_on_order_id", using: :btree
 
   create_table "meats", force: :cascade do |t|
-    t.integer  "type",       null: false
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "order_id"
   end
 
-  add_index "meats", ["order_id"], name: "index_meats_on_order_id", using: :btree
-  add_index "meats", ["type"], name: "index_meats_on_type", using: :btree
+  add_index "meats", ["name"], name: "index_meats_on_name", using: :btree
+
+  create_table "order_meats", force: :cascade do |t|
+    t.integer  "meat_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_meats", ["meat_id"], name: "index_order_meats_on_meat_id", using: :btree
+  add_index "order_meats", ["order_id"], name: "index_order_meats_on_order_id", using: :btree
+
+  create_table "order_side_dishes", force: :cascade do |t|
+    t.integer  "side_dish_id"
+    t.integer  "order_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "order_side_dishes", ["order_id"], name: "index_order_side_dishes_on_order_id", using: :btree
+  add_index "order_side_dishes", ["side_dish_id"], name: "index_order_side_dishes_on_side_dish_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -43,16 +61,16 @@ ActiveRecord::Schema.define(version: 20150727145515) do
   end
 
   create_table "side_dishes", force: :cascade do |t|
-    t.integer  "type",       null: false
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "order_id"
   end
 
-  add_index "side_dishes", ["order_id"], name: "index_side_dishes_on_order_id", using: :btree
-  add_index "side_dishes", ["type"], name: "index_side_dishes_on_type", using: :btree
+  add_index "side_dishes", ["name"], name: "index_side_dishes_on_name", using: :btree
 
   add_foreign_key "addresses", "orders"
-  add_foreign_key "meats", "orders"
-  add_foreign_key "side_dishes", "orders"
+  add_foreign_key "order_meats", "meats"
+  add_foreign_key "order_meats", "orders"
+  add_foreign_key "order_side_dishes", "orders"
+  add_foreign_key "order_side_dishes", "side_dishes"
 end

@@ -1,0 +1,21 @@
+<table class="table table-striped">
+
+  <thead>
+    <th>#</th>
+    <th>Carne</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @meats.each do |meat| %>
+      <tr>
+        <td><%= meat.id %></td>
+        <td><%= meat.name %></td>
+        <td><%= link_to 'Exibir', meat_path(meat) %></td>
+        <td><%= link_to 'Editar', edit_meat_path(meat) %></td>
+        <td><%= link_to 'Deletar', meat_path(meat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
