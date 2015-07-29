@@ -44,8 +44,6 @@ end
 
 group :development, :test do
   # pry
-  #gem 'pry'
-  #gem 'pry-byebug'
   gem 'pry-rails'
 
   # RSpec
