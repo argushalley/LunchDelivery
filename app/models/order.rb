@@ -8,4 +8,6 @@ class Order < ActiveRecord::Base
   accepts_nested_attributes_for :meats
   accepts_nested_attributes_for :side_dishes
   accepts_nested_attributes_for :address
+
+  validates_presence_of :address, :meats, :side_dishes
 end
