@@ -31,6 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'bootstrap-sass'
+gem 'simple_form'
 
 group :test do
   gem 'capybara'
@@ -40,7 +42,9 @@ end
 
 group :development, :test do
   # pry
-  gem 'pry-byebug'
+  #gem 'pry'
+  #gem 'pry-byebug'
+  gem 'pry-rails'
 
   # RSpec
   gem 'rspec-activemodel-mocks'
