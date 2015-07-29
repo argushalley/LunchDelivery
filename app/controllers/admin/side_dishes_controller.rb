@@ -23,7 +23,7 @@ class Admin::SideDishesController < ApplicationController
     @side_dish = SideDish.new(side_dish_params)
 
     if @side_dish.save
-      respond_with @side_dish
+      respond_with @side_dish, location: [:admin, @side_dish]
     else
       render 'new'
     end
@@ -38,7 +38,7 @@ class Admin::SideDishesController < ApplicationController
     authorize! :update, SideDish
     @side_dish = SideDish.find(params[:id])
     @side_dish.update_attributes(side_dish_params)
-    respond_with @side_dish
+    respond_with @side_dish, location: [:admin, @side_dish]
   end
 
   def destroy

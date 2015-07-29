@@ -26,7 +26,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @order.save
-      respond_with @order
+      respond_with @order, location: [:admin, @order]
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class Admin::OrdersController < ApplicationController
     authorize! :update, Order
     @order = Order.find(params[:id])
     @order.update_attributes(order_params)
-    respond_with @order
+    respond_with @order, location: [:admin, @order]
   end
 
   def destroy

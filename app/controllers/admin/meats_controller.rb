@@ -23,7 +23,7 @@ class Admin::MeatsController < ApplicationController
     @meat = Meat.new(meat_params)
 
     if @meat.save
-      respond_with @meat
+      respond_with @meat, location: [:admin, @meat]
     else
       render 'new'
     end
@@ -38,7 +38,7 @@ class Admin::MeatsController < ApplicationController
     authorize! :update, Meat
     @meat = Meat.find(params[:id])
     @meat.update_attributes(meat_params)
-    respond_with @meat
+    respond_with @meat, location: [:admin, @meat]
   end
 
   def destroy

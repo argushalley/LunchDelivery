@@ -1,5 +1,5 @@
 <div class="row">
-  <%= simple_form_for @meat, html: { class: 'form-horizontal' } do |f| %>
+  <%= simple_form_for [:admin, @meat], html: { class: 'form-horizontal' } do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
