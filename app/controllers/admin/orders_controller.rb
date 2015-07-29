@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class Admin::OrdersController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @order.save
-      respond_with @order
+      respond_with @order, location: [:admin, @order]
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
     authorize! :update, Order
     @order = Order.find(params[:id])
     @order.update_attributes(order_params)
-    respond_with @order
+    respond_with @order, location: [:admin, @order]
   end
 
   def destroy
@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.destroy
 
-    redirect_to orders_path
+    redirect_to admin_orders_path
   end
 
   private

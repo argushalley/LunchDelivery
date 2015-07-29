@@ -12,9 +12,9 @@
       <tr>
         <td><%= side_dish.id %></td>
         <td><%= side_dish.name %></td>
-        <td><%= link_to 'Exibir', side_dish_path(side_dish) %></td>
-        <td><%= link_to 'Editar', edit_side_dish_path(side_dish) %></td>
-        <td><%= link_to 'Deletar', side_dish_path(side_dish), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Exibir', admin_side_dish_path(side_dish) %></td>
+        <td><%= link_to 'Editar', edit_admin_side_dish_path(side_dish) %></td>
+        <td><%= link_to 'Deletar', admin_side_dish_path(side_dish), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
