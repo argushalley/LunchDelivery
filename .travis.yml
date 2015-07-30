@@ -1,10 +1,14 @@
 sudo: false
 language: ruby
 cache: bundler
-bundler_args: --without development production
+bundler_args: "--without development production"
 rvm:
-  - 2.1.2
+- 2.1.2
 before_script:
-  - cp config/database.yml.example config/database.yml
-  - bundle exec rake db:create db:migrate db:test:prepare
+- cp config/database.yml.example config/database.yml
+- bundle exec rake db:create db:migrate db:test:prepare
 script: bundle exec rspec spec
+addons:
+  code_climate:
+    repo_token:
+      secure: jtddFWy71LajFFEGjngS2NZsMkYV52xRYOcWFIaJcYhh7UlIiH6DEuVBblxlml6hyiS+Y4ArWyi+BpgpioXDPh3WJ3AsOoGjbXzVihgD8sycodO5RmTUvgVlVR1td3MhoodVRxkqfL7DG8yGX6SOTvApgpqHzvHKnOF2xCXIRT53zQW42UmJHfhgVKZ5zFAQahxfKV9pyy/beJ5r7aJmjYuH6KDxMUqMYcEjdgIHSPJbze4QdQwgPc7BjMnNS7h9gZd8sZUaHk9RDSKk94MdynGfUNVyH3+Wd2+bWpoZeZ+c7fpSNwgwmUiwp1xuJd5BQP1tNpkd602A8XZSxFwSaFDYcTqExe0JDXKsj6ESEV/RIflj7Bm1o/wtYSf/tWOmXSgFFiHQGU0H/tLBEIW4IqJFWvSX60RzxEsUeqtNtSqQRhUA/SuJ3DAYsD1nLDkrT+QGSiDApQTSUXaKNehpjsHinESBOq+zwSjPtUjWuz6NvzmxqEDbqGAXHo+/FyQXLeaBi8IU4nKYpipuFhnBCWHByTQwbPnl8lARy7DWzt02oy/d4cx6EEbBUgA4uw2l+deG19nND4I+qOa1R8uQgujsKOi2a+eEpwi2vxAgTAonRf/HKmaCL8CHQeCqa1ZNzvvBtTEnjGRS71J6GXxhcIh+XIwKM4QfTAgZYNfICGk=

@@ -44,7 +44,7 @@ gem 'simple-navigation-bootstrap'
 
 group :test do
   gem 'capybara'
-  #gem 'codeclimate-test-reporter', require: nil
+  gem 'codeclimate-test-reporter', require: nil
   gem 'shoulda-matchers'
 end
 
