@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/argushalley/LunchDelivery.svg?branch=master)](https://travis-ci.org/argushalley/LunchDelivery) [![Code Climate](https://codeclimate.com/github/argushalley/LunchDelivery/badges/gpa.svg)](https://codeclimate.com/github/argushalley/LunchDelivery) [![Test Coverage](https://codeclimate.com/github/argushalley/LunchDelivery/badges/coverage.svg)](https://codeclimate.com/github/argushalley/LunchDelivery)
 
-README
-
 Project where an user (registration needed) can order its meal by choosing meats and side dishes and providing a delivery address.
 Normal users can only create, edit and destroy its own orders. Admin users can create, edit and destroy meats, side dishes and orders.
 
