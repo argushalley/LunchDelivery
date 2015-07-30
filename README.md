@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/argushalley/LunchDelivery.svg?branch=master)](https://travis-ci.org/argushalley/LunchDelivery)
+[![Build Status](https://travis-ci.org/argushalley/LunchDelivery.svg?branch=master)](https://travis-ci.org/argushalley/LunchDelivery) [![Code Climate](https://codeclimate.com/github/argushalley/LunchDelivery/badges/gpa.svg)](https://codeclimate.com/github/argushalley/LunchDelivery) [![Test Coverage](https://codeclimate.com/github/argushalley/LunchDelivery/badges/coverage.svg)](https://codeclimate.com/github/argushalley/LunchDelivery)
 
 README
 
