@@ -2,8 +2,8 @@
 
 README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project where an user (registration needed) can order its meal by choosing meats and side dishes and providing a delivery address.
+Normal users can only create, edit and destroy its own orders. Admin users can create, edit and destroy meats, side dishes and orders.
 
 ## How to setup
 
