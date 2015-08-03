@@ -45,7 +45,7 @@ class Admin::SideDishesController < ApplicationController
     authorize! :destroy, SideDish
     @side_dish = SideDish.find(params[:id])
     @side_dish.destroy
-    redirect_to admin_side_dishes_path, alert: @side_dish.errors.full_messages if @side_dish.errors.any?
+    respond_with @side_dish, location: admin_side_dishes_path
   end
 
   private

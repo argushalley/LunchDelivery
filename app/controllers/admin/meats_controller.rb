@@ -1,8 +1,6 @@
 class Admin::MeatsController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html
-
   def index
     authorize! :read, Meat
     @meats = Meat.all
@@ -45,7 +43,7 @@ class Admin::MeatsController < ApplicationController
     authorize! :destroy, Meat
     @meat = Meat.find(params[:id])
     @meat.destroy
-    redirect_to admin_meats_path, alert: @meat.errors.full_messages if @meat.errors.any?
+    respond_with @meat, location: admin_meats_path
   end
 
   private
