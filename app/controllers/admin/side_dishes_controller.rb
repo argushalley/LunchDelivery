@@ -1,8 +1,6 @@
 class Admin::SideDishesController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html
-
   def index
     authorize! :read, SideDish
     @side_dishes = SideDish.all
