@@ -1,8 +1,6 @@
 class Admin::OrdersController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html
-
   def index
     authorize! :read, Order
     @orders = Order.all
@@ -50,7 +48,7 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.destroy
 
-    redirect_to admin_orders_path
+    respond_with @order, location: admin_orders_path
   end
 
   private
